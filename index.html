@@ -3,581 +3,723 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBMS Important Questions</title>
+    <title> MG UNIVERSITY NALGONDA BSC 4TH SEM DBMS | IMP Questions</title>
+    <!-- 
+        Styles from the Jekyll theme sample.
+        In a real Jekyll site, this would often be in a separate /assets/css/style.css file.
+    -->
     <style>
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        details {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        details summary {
-            font-weight: bold;
-            padding: 10px;
-            cursor: pointer;
-            background-color: #f1f1f1;
-        }
-        details details { /* Nested details for Q&A */
-            margin-left: 20px;
-            background-color: #fff;
-            border-left: 2px solid #007bff;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        details details summary {
-            background-color: #e9ecef;
-            font-weight: normal;
-        }
-        .answer {
-            padding: 10px;
-        }
-        .unit-title {
-            font-size: 1.5em;
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4; 
             color: #333;
         }
-        .question-type {
-            font-size: 1.2em;
-            color: #555;
-            margin-top: 15px;
-            margin-bottom: 5px;
+        .site-header {
+            background-color: #2c3e50; /* Dark blue-grey */
+            color: #ecf0f1; /* Light grey/white */
+            padding: 1em 2em;
+            text-align: center;
+        }
+        .site-header .site-title {
+            margin: 0;
+            font-size: 2em;
+        }
+        .site-header .site-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5em 0 0 0;
+        }
+        .site-header .site-nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .site-header .site-nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .site-header .site-nav a:hover {
+            color: #3498db; /* A bright blue for hover */
+        }
+        .page-content {
+            max-width: 900px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .page-main-title { /* Renamed from page-title for clarity if needed, or keep as page-title */
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5em;
+            text-align: center; /* Center the main title */
+            margin-bottom: 1.5em;
+        }
+        /* Styling for the main unit summary */
+        details > summary.unit-main-title {
+            font-size: 1.3em; /* Make unit titles a bit larger */
+            font-weight: bold;
+            padding: 12px 15px;
+            cursor: pointer;
+            background-color: #3498db; /* Blue background for unit titles */
+            color: white;
+            border-radius: 4px 4px 0 0; /* Rounded top corners */
+            border: 1px solid #2980b9;
+            margin-bottom: 0; /* Remove bottom margin if details content follows directly */
+        }
+        details[open] > summary.unit-main-title {
+            background-color: #2980b9; /* Darker blue when open */
+        }
+         details > summary.unit-main-title:hover {
+            background-color: #2c81ba;
+        }
+
+        .unit-content {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-top: none; /* Remove top border as summary has bottom border */
+            background-color: #fdfdfd;
+            border-radius: 0 0 4px 4px; /* Rounded bottom corners */
+        }
+        .unit-content h3 { /* Styling for "Short Answer Questions" / "Long Answer Questions" */
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        /* Styling for individual question summaries */
+        .unit-content details summary {
+            font-weight: bold; /* Keep question text bold */
+            padding: 10px;
+            cursor: pointer;
+            background-color: #e9ecef; /* Light grey for question summary */
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-top: 8px;
+        }
+        .unit-content details summary:hover {
+            background-color: #dcdcdc;
+        }
+        .unit-content details[open] summary {
+            background-color: #5dade2; /* Lighter blue for open question */
+            color: white;
+            border-color: #4a98c1;
+        }
+        .answer { /* Styling for the answer div */
+            padding: 10px 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 3px 3px;
+            margin-bottom: 8px; /* Space below each answer block */
+        }
+        .answer p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .answer p:first-child {
+            margin-top: 0;
+        }
+        .answer p:last-child {
+            margin-bottom: 0;
+        }
+        code { /* Basic styling for inline code */
+            background-color: #e8e8e8;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 2em;
+            background-color: #34495e; /* Another shade of dark blue-grey */
+            color: #ecf0f1;
+            margin-top: 2em;
+        }
+        .site-footer p {
+            margin: 0;
+        }
+        /* Basic responsive for smaller screens */
+        @media (max-width: 768px) {
+            .site-header .site-nav li {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            .page-content {
+                margin: 1em;
+                padding: 1em;
+            }
+            .site-header {
+                padding: 1em;
+            }
+            .site-header .site-title {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Database Management Systems (BS406) - Important Questions and Answers [cite: 1]</h1>
+    <header class="site-header">
+        <h1 class="site-title">My Awesome DBMS Site</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Units</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <details>
-        <summary class="unit-title">Unit – I: Introduction to DBMS and Relational Algebra [cite: 1]</summary>
-        
-        <div class="question-type">Short Answer Questions (4 lines each) [cite: 1]</div>
-        <details>
-            <summary>1. What is a Database? [cite: 1]</summary>
-            <div class="answer">
-                <p>A database is a collection of organized data that can be easily accessed, managed, and updated. [cite: 2]</p>
-                <p>It allows storing and retrieving information efficiently. It supports multiple users and applications. [cite: 3]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. List any two advantages and two disadvantages of DBMS. [cite: 4]</summary>
-            <div class="answer">
-                <p>Advantages: Data Redundancy control, Data Integrity. [cite: 4]</p>
-                <p>Disadvantages: High cost, Complex system to manage. [cite: 5]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. What is the ANSI-SPARC architecture? [cite: 5]</summary>
-            <div class="answer">
-                <p>It is a three-level database architecture: External, Conceptual, and Internal. It separates user views from physical storage. [cite: 6]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Define Data Models with examples. [cite: 7]</summary>
-            <div class="answer">
-                <p>Data Models define how data is connected and accessed. Examples: Hierarchical, Network, Relational models. [cite: 7]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. What are the components of a DBMS? [cite: 8]</summary>
-            <div class="answer">
-                <p>Components include DBMS Engine, Query Processor, Metadata Catalog, and Application Interface. [cite: 8]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Define the Relational Model. [cite: 9]</summary>
-            <div class="answer">
-                <p>A relational model organizes data into tables (relations) using rows and columns. [cite: 9]</p>
-                <p>It uses keys and constraints. [cite: 10]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. What are Integrity Constraints? [cite: 10]</summary>
-            <div class="answer">
-                <p>These are rules to maintain data accuracy and consistency, like Primary Key, Foreign Key, and Check constraints. [cite: 11]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. Write short notes on Aggregation and Grouping. [cite: 12]</summary>
-            <div class="answer">
-                <p>Aggregation combines data using functions like SUM, AVG. [cite: 12]</p>
-                <p>Grouping groups data using GROUP BY clause. [cite: 13]</p>
-            </div>
-        </details>
+    <main class="page-content">
+        <h1 class="page-main-title">Database Management Systems (BS406) - Important Questions and Answers</h1>
 
-        <div class="question-type">Long Answer Questions (8+ lines each) [cite: 13]</div>
         <details>
-            <summary>1. Explain file-based systems and compare them with DBMS. [cite: 13]</summary>
-            <div class="answer">
-                <p>File-based systems store data in separate files. They lack security, data integrity, and concurrent access support. [cite: 14]</p>
-                <p>DBMS solves these issues by using a centralized system with constraints, multi-user access, transaction support, and better storage mechanisms. [cite: 15]</p>
-                <p>It enhances consistency and avoids redundancy. [cite: 16]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. Describe the three-level architecture of DBMS. [cite: 16]</summary>
-            <div class="answer">
-                <p>The three levels are: [cite: 17]</p>
-                <p>	• External level: user view. [cite: 17]</p>
-                <p>	• Conceptual level: logical structure. [cite: 17]</p>
-                <p>	• Internal level: physical storage. [cite: 17]</p>
-                <p>This separation allows independence between data structure and storage. [cite: 18]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. Discuss different data models in DBMS. [cite: 18]</summary>
-            <div class="answer">
-                <p>Data models describe how data is organized. Hierarchical model uses parent-child relationships. Network model allows complex relationships. [cite: 19]</p>
-                <p>Relational model uses tables. Object-oriented model integrates object features. [cite: 20]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Explain various database languages supported by DBMS. [cite: 20]</summary>
-            <div class="answer">
-                <p>	• DDL (Data Definition Language): Defines structure. [cite: 21]</p>
-                <p>	• DML (Data Manipulation Language): Handles data. [cite: 21]</p>
-                <p>	• DCL (Data Control Language): Manages permissions. [cite: 22]</p>
-                <p>	• TCL (Transaction Control Language): Manages transactions. [cite: 22]</p>
-                <p>Each type plays a vital role in handling and securing data efficiently. [cite: 23]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. What are relational algebra operations? Explain with examples. [cite: 24]</summary>
-            <div class="answer">
-                <p>They include Select, Project, Union, Set Difference, Cartesian Product, Rename, Join, and Division. [cite: 24]</p>
-                <p>These operations help retrieve and manipulate data from relational databases. [cite: 25]</p>
-                <p>For example, Select filters data while Join combines data from multiple tables. [cite: 26]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Explain Join and Division operations in relational algebra. [cite: 26]</summary>
-            <div class="answer">
-                <p>Join combines two relations on a common attribute to retrieve meaningful information. [cite: 27]</p>
-                <p>Division is used when we need results that match all values in a related set, such as finding students enrolled in all courses. [cite: 28]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. Explain integrity constraints in detail. [cite: 28]</summary>
-            <div class="answer">
-                <p>They include: [cite: 29]</p>
-                <p>	• Primary Key: Uniquely identifies a record. [cite: 29]</p>
-                <p>	• Foreign Key: Links two tables. [cite: 29]</p>
-                <p>	• Check: Enforces a condition. [cite: 30]</p>
-                <p>	• Not Null: Prevents null values. [cite: 30]</p>
-                <p>These constraints ensure consistency, accuracy, and proper linking of records. [cite: 31]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. What are the advantages and limitations of DBMS approach? [cite: 31]</summary>
-            <div class="answer">
-                <p>Advantages: [cite: 32]</p>
-                <p>	• Data integrity and security [cite: 32]</p>
-                <p>	• Easy data access and backup [cite: 32]</p>
-                <p>	• Reduces redundancy [cite: 32]</p>
-                <p>Limitations: [cite: 32]</p>
-                <p>	• High cost of software and hardware [cite: 32]</p>
-                <p>	• Complexity in handling [cite: 32]</p>
-            </div>
-        </details>
-    </details>
+            <summary class="unit-main-title">Unit – I: Introduction to DBMS and Relational Algebra</summary>
+            <div class="unit-content">
+                <h3>Short Answer Questions</h3>
+                <details>
+                    <summary>1. What is a Database?</summary>
+                    <div class="answer">
+                        <p>A database is a collection of organized data that can be easily accessed, managed, and updated.</p>
+                        <p>It allows storing and retrieving information efficiently. It supports multiple users and applications.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. List any two advantages and two disadvantages of DBMS.</summary>
+                    <div class="answer">
+                        <p><strong>Advantages:</strong> Data Redundancy control, Data Integrity.</p>
+                        <p><strong>Disadvantages:</strong> High cost, Complex system to manage.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. What is the ANSI-SPARC architecture?</summary>
+                    <div class="answer">
+                        <p>It is a three-level database architecture: External, Conceptual, and Internal. It separates user views from physical storage.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Define Data Models with examples.</summary>
+                    <div class="answer">
+                        <p>Data Models define how data is connected and accessed. Examples: Hierarchical, Network, Relational models.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. What are the components of a DBMS?</summary>
+                    <div class="answer">
+                        <p>Components include DBMS Engine, Query Processor, Metadata Catalog, and Application Interface.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Define the Relational Model.</summary>
+                    <div class="answer">
+                        <p>A relational model organizes data into tables (relations) using rows and columns.</p>
+                        <p>It uses keys and constraints.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. What are Integrity Constraints?</summary>
+                    <div class="answer">
+                        <p>These are rules to maintain data accuracy and consistency, like Primary Key, Foreign Key, and Check constraints.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. Write short notes on Aggregation and Grouping.</summary>
+                    <div class="answer">
+                        <p>Aggregation combines data using functions like SUM, AVG.</p>
+                        <p>Grouping groups data using GROUP BY clause.</p>
+                    </div>
+                </details>
 
-    <details>
-        <summary class="unit-title">Unit – II: SQL and Advanced SQL [cite: 32]</summary>
-        
-        <div class="question-type">Short Answer Questions (4 lines each) [cite: 32]</div>
-        <details>
-            <summary>1. Write a simple SQL query to retrieve names from a student table. [cite: 32]</summary>
-            <div class="answer">
-                <p>SELECT name FROM student; [cite: 33]</p>
-                <p>This query selects all names from the "student" table. [cite: 33]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. What is the use of GROUP BY clause in SQL? [cite: 34]</summary>
-            <div class="answer">
-                <p>GROUP BY is used to group rows with the same values in specified columns and allows aggregate functions like COUNT, SUM. [cite: 35]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. Define Subqueries with an example. [cite: 36]</summary>
-            <div class="answer">
-                <p>A subquery is a query within another SQL query. [cite: 36]</p>
-                <p>Example: SELECT * FROM emp WHERE dept_id = (SELECT dept_id FROM dept WHERE name='Sales'); [cite: 37]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. What is the difference between EXISTS and NOT EXISTS? [cite: 38]</summary>
-            <div class="answer">
-                <p>EXISTS checks if subquery returns any rows. [cite: 38]</p>
-                <p>NOT EXISTS checks if it returns none. [cite: 39]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. What is a View? How is it created in SQL? [cite: 39]</summary>
-            <div class="answer">
-                <p>A view is a virtual table. Syntax: CREATE VIEW view_name AS SELECT ... [cite: 40]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Define Domain Constraints and Entity Integrity. [cite: 40]</summary>
-            <div class="answer">
-                <p>Domain constraint restricts values to specific data types. Entity Integrity ensures primary key is not NULL. [cite: 41]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. What is the use of the CHECK constraint? [cite: 42]</summary>
-            <div class="answer">
-                <p>It limits the value range that can be placed in a column, e.g., CHECK (age >= 18). [cite: 42]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. What are Stored Procedures? [cite: 43]</summary>
-            <div class="answer">
-                <p>Stored Procedures are precompiled SQL programs stored in the DB that can be executed repeatedly. [cite: 43]</p>
+                <h3>Long Answer Questions</h3>
+                <details>
+                    <summary>1. Explain file-based systems and compare them with DBMS.</summary>
+                    <div class="answer">
+                        <p>File-based systems store data in separate files. They lack security, data integrity, and concurrent access support.</p>
+                        <p>DBMS solves these issues by using a centralized system with constraints, multi-user access, transaction support, and better storage mechanisms.</p>
+                        <p>It enhances consistency and avoids redundancy.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. Describe the three-level architecture of DBMS.</summary>
+                    <div class="answer">
+                        <p>The three levels are:</p>
+                        <p>	• External level: user view.</p>
+                        <p>	• Conceptual level: logical structure.</p>
+                        <p>	• Internal level: physical storage.</p>
+                        <p>This separation allows independence between data structure and storage.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. Discuss different data models in DBMS.</summary>
+                    <div class="answer">
+                        <p>Data models describe how data is organized. Hierarchical model uses parent-child relationships. Network model allows complex relationships.</p>
+                        <p>Relational model uses tables. Object-oriented model integrates object features.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Explain various database languages supported by DBMS.</summary>
+                    <div class="answer">
+                        <p>	• DDL (Data Definition Language): Defines structure.</p>
+                        <p>	• DML (Data Manipulation Language): Handles data.</p>
+                        <p>	• DCL (Data Control Language): Manages permissions.</p>
+                        <p>	• TCL (Transaction Control Language): Manages transactions.</p>
+                        <p>Each type plays a vital role in handling and securing data efficiently.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. What are relational algebra operations? Explain with examples.</summary>
+                    <div class="answer">
+                        <p>They include Select, Project, Union, Set Difference, Cartesian Product, Rename, Join, and Division.</p>
+                        <p>These operations help retrieve and manipulate data from relational databases.</p>
+                        <p>For example, Select filters data while Join combines data from multiple tables.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Explain Join and Division operations in relational algebra.</summary>
+                    <div class="answer">
+                        <p>Join combines two relations on a common attribute to retrieve meaningful information.</p>
+                        <p>Division is used when we need results that match all values in a related set, such as finding students enrolled in all courses.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. Explain integrity constraints in detail.</summary>
+                    <div class="answer">
+                        <p>They include:</p>
+                        <p>	• Primary Key: Uniquely identifies a record.</p>
+                        <p>	• Foreign Key: Links two tables.</p>
+                        <p>	• Check: Enforces a condition.</p>
+                        <p>	• Not Null: Prevents null values.</p>
+                        <p>These constraints ensure consistency, accuracy, and proper linking of records.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. What are the advantages and limitations of DBMS approach?</summary>
+                    <div class="answer">
+                        <p><strong>Advantages:</strong></p>
+                        <p>	• Data integrity and security</p>
+                        <p>	• Easy data access and backup</p>
+                        <p>	• Reduces redundancy</p>
+                        <p><strong>Limitations:</strong></p>
+                        <p>	• High cost of software and hardware</p>
+                        <p>	• Complexity in handling</p>
+                    </div>
+                </details>
             </div>
         </details>
 
-        <div class="question-type">Long Answer Questions (8+ lines each) [cite: 44]</div>
         <details>
-            <summary>1. Explain DDL, DML, and DCL statements in SQL with examples. [cite: 44]</summary>
-            <div class="answer">
-                <p>	• DDL (CREATE, ALTER, DROP): Defines schema. [cite: 45]</p>
-                <p>	• DML (INSERT, UPDATE, DELETE): Modifies data. [cite: 45]</p>
-                <p>	• DCL (GRANT, REVOKE): Controls access. [cite: 45]</p>
-                <p>Each plays a vital role in managing and securing data in DBMS with clear syntax and defined outcomes. [cite: 46]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. Describe the use of aggregate functions and GROUP BY in SQL. [cite: 46]</summary>
-            <div class="answer">
-                <p>Aggregate functions: SUM, AVG, COUNT, MAX, MIN. [cite: 47]</p>
-                <p>GROUP BY groups data rows based on one or more columns. Example: SELECT dept, COUNT(*) FROM emp GROUP BY dept; [cite: 48]</p>
-                <p>helps in departmental employee counts and summary reporting. [cite: 49]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. Discuss how to create, modify, and delete views in SQL. [cite: 49]</summary>
-            <div class="answer">
-                <p>	• Create: CREATE VIEW emp_view AS SELECT name FROM emp; [cite: 50]</p>
-                <p>	• Update: CREATE OR REPLACE VIEW ... [cite: 51]</p>
-                <p>	• Delete: DROP VIEW emp_view; [cite: 51]</p>
-                <p>Views are useful for security and simplifying complex queries by abstracting the base table details. [cite: 52]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Explain integrity constraints and their types with examples. [cite: 53]</summary>
-            <div class="answer">
-                <p>	• Primary Key: emp_id INT PRIMARY KEY [cite: 53]</p>
-                <p>	• Foreign Key: FOREIGN KEY (dept_id) REFERENCES dept(dept_id) [cite: 53]</p>
-                <p>	• Check: CHECK (salary > 0) [cite: 53]</p>
-                <p>	• Not Null: name VARCHAR(20) NOT NULL [cite: 53]</p>
-                <p>These ensure the reliability and accuracy of data. [cite: 53]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. Write a detailed note on advantages and disadvantages of Views. [cite: 54]</summary>
-            <div class="answer">
-                <p>Advantages: [cite: 55]</p>
-                <p>	• Simplify complex queries [cite: 55]</p>
-                <p>	• Enhance security [cite: 55]</p>
-                <p>	• Provide logical data independence [cite: 55]</p>
-                <p>Disadvantages: [cite: 55]</p>
-                <p>	• May be non-updatable [cite: 55]</p>
-                <p>	• Can impact performance [cite: 55]</p>
-                <p>They are best suited for data abstraction and control. [cite: 55]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Describe the process of creating and dropping indexes in SQL. [cite: 56]</summary>
-            <div class="answer">
-                <p>	• Create: CREATE INDEX idx_name ON table(col); [cite: 56]</p>
-                <p>	• Drop: DROP INDEX idx_name; [cite: 57]</p>
-                <p>Indexes speed up data retrieval but may slow insert/update operations. Proper index design is crucial. [cite: 57]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. Explain Cursors, Triggers, and Exceptions with examples. [cite: 58]</summary>
-            <div class="answer">
-                <p>	• Cursor: Allows row-by-row processing. [cite: 58]</p>
-                <p> DECLARE CURSOR ... [cite: 59]</p>
-                <p>	• Trigger: Runs automatically on insert/update/delete. CREATE TRIGGER ... [cite: 59]</p>
-                <p>	• Exception: Handles errors using TRY-CATCH blocks or DB exception handling. [cite: 59]</p>
-                <p>These enhance data control. [cite: 60]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. Write and explain an SQL program using Functions and Packages. [cite: 60]</summary>
-            <div class="answer">
-                <p>A Function is used for computation. Example: [cite: 61]</p>
-                <p>CREATE FUNCTION calc_bonus(salary NUMBER) RETURN NUMBER IS [cite: 61]</p>
-                <p>BEGIN [cite: 61]</p>
-                <p>  RETURN salary * 0.10; [cite: 61]</p>
-                <p>END; [cite: 61]</p>
-                <p>Packages group procedures, functions, and variables. Example: CREATE PACKAGE employee_ops AS ... [cite: 62]</p>
-            </div>
-        </details>
-    </details>
+            <summary class="unit-main-title">Unit – II: SQL and Advanced SQL</summary>
+            <div class="unit-content">
+                <h3>Short Answer Questions</h3>
+                <details>
+                    <summary>1. Write a simple SQL query to retrieve names from a student table.</summary>
+                    <div class="answer">
+                        <p><code>SELECT name FROM student;</code></p>
+                        <p>This query selects all names from the "student" table.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. What is the use of GROUP BY clause in SQL?</summary>
+                    <div class="answer">
+                        <p>GROUP BY is used to group rows with the same values in specified columns and allows aggregate functions like COUNT, SUM.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. Define Subqueries with an example.</summary>
+                    <div class="answer">
+                        <p>A subquery is a query within another SQL query.</p>
+                        <p>Example: <code>SELECT * FROM emp WHERE dept_id = (SELECT dept_id FROM dept WHERE name='Sales');</code></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. What is the difference between EXISTS and NOT EXISTS?</summary>
+                    <div class="answer">
+                        <p>EXISTS checks if subquery returns any rows.</p>
+                        <p>NOT EXISTS checks if it returns none.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. What is a View? How is it created in SQL?</summary>
+                    <div class="answer">
+                        <p>A view is a virtual table. Syntax: <code>CREATE VIEW view_name AS SELECT ...</code></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Define Domain Constraints and Entity Integrity.</summary>
+                    <div class="answer">
+                        <p>Domain constraint restricts values to specific data types. Entity Integrity ensures primary key is not NULL.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. What is the use of the CHECK constraint?</summary>
+                    <div class="answer">
+                        <p>It limits the value range that can be placed in a column, e.g., <code>CHECK (age >= 18)</code>.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. What are Stored Procedures?</summary>
+                    <div class="answer">
+                        <p>Stored Procedures are precompiled SQL programs stored in the DB that can be executed repeatedly.</p>
+                    </div>
+                </details>
 
-    <details>
-        <summary class="unit-title">Unit – III: ER Modeling and Normalization [cite: 62]</summary>
-        
-        <div class="question-type">Short Answer Questions (4 lines each) [cite: 62]</div>
-        <details>
-            <summary>1. Define Entity and Entity Set. [cite: 63]</summary>
-            <div class="answer">
-                <p>An entity is a real-world object. An entity set is a group of similar entities. [cite: 63]</p>
-                <p>Example: A student is an entity, and all students form an entity set. [cite: 64]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. What is a Relationship Type? [cite: 65]</summary>
-            <div class="answer">
-                <p>It represents an association between entities. Example: A student 'enrolls' in a course – ‘enrolls’ is the relationship type. [cite: 65]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. Differentiate between Strong and Weak Entity. [cite: 66]</summary>
-            <div class="answer">
-                <p>A strong entity has a primary key. [cite: 66]</p>
-                <p>A weak entity cannot exist without a strong entity and uses a foreign key. [cite: 67]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Define Key and Attribute in ER Model. [cite: 68]</summary>
-            <div class="answer">
-                <p>Key uniquely identifies an entity. [cite: 68]</p>
-                <p>Attributes describe properties of an entity like name, age, etc. [cite: 69]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. What are Structural Constraints? [cite: 70]</summary>
-            <div class="answer">
-                <p>They define cardinality (1:1, 1:N, N:M) and participation (total or partial) in relationships. [cite: 70]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Define Functional Dependency. [cite: 71]</summary>
-            <div class="answer">
-                <p>A functional dependency X → Y means if two tuples agree on X, they must agree on Y. It’s used in normalization. [cite: 71]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. What is Normalization? [cite: 72]</summary>
-            <div class="answer">
-                <p>Normalization is a process to reduce data redundancy and improve data integrity by organizing data into tables. [cite: 72]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. What is 3NF? [cite: 73]</summary>
-            <div class="answer">
-                <p>A relation is in 3NF if it is in 2NF and no transitive dependency exists between non-prime attributes. [cite: 73]</p>
-            </div>
-        </details>
-
-        <div class="question-type">Long Answer Questions (8+ lines each) [cite: 74]</div>
-        <details>
-            <summary>1. Explain different types of attributes in ER Model. [cite: 74]</summary>
-            <div class="answer">
-                <p>Attributes can be: [cite: 75]</p>
-                <p>	• Simple (indivisible) [cite: 75]</p>
-                <p>	• Composite (divided into sub-parts) [cite: 75]</p>
-                <p>	• Derived (calculated) [cite: 75]</p>
-                <p>	• Multi-valued (multiple values) [cite: 75]</p>
-                <p>They help in fully defining an entity’s properties and relationships. [cite: 75]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. What are ER diagrams? Describe symbols used. [cite: 76]</summary>
-            <div class="answer">
-                <p>ER diagrams represent entities, relationships, and attributes. [cite: 76]</p>
-                <p>Rectangles = entities, Diamonds = relationships, Ovals = attributes. Lines connect elements. Double lines = total participation. [cite: 77]</p>
-                <p>This diagram helps in visualizing DB design. [cite: 78]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. Discuss Functional Dependencies with examples. [cite: 78]</summary>
-            <div class="answer">
-                <p>A → B implies B is functionally dependent on A. Example: Student_ID → Student_Name. [cite: 79]</p>
-                <p>Functional dependencies help detect redundancy and guide normalization. [cite: 80]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Differentiate between Partial and Transitive Dependency. [cite: 80]</summary>
-            <div class="answer">
-                <p>Partial Dependency: Non-key depends on part of composite key (1NF to 2NF). [cite: 81]</p>
-                <p>Transitive Dependency: A → B and B → C implies A → C (2NF to 3NF). [cite: 82]</p>
-                <p>These need to be removed for normalized DB design. [cite: 83]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. Explain the purpose and process of normalization. [cite: 83]</summary>
-            <div class="answer">
-                <p>Normalization reduces redundancy and anomalies. It involves organizing data into normal forms: 1NF (atomic), 2NF (no partial), 3NF (no transitive), BCNF (more strict). [cite: 84]</p>
-                <p>Each form improves structure and integrity. [cite: 85]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. What is the difference between 1NF, 2NF, and 3NF? [cite: 85]</summary>
-            <div class="answer">
-                <p>	• 1NF: Atomic values [cite: 86]</p>
-                <p>	• 2NF: No partial dependencies [cite: 86]</p>
-                <p>	• 3NF: No transitive dependencies [cite: 86]</p>
-                <p>Each step removes redundancy and improves clarity of data storage. [cite: 86]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. Explain problems like Fan Traps and Chasm Traps in ER modeling. [cite: 87]</summary>
-            <div class="answer">
-                <p>Fan Trap occurs when a single entity is related to multiple entities without proper linkage. [cite: 88]</p>
-                <p>Chasm Trap happens when a relationship is missing, preventing data retrieval. These are resolved using correct relationship mapping. [cite: 89]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. Describe the Database Design Methodology using ER to Relational. [cite: 90]</summary>
-            <div class="answer">
-                <p>Steps: [cite: 91]</p>
-                <p>	• Identify entities and relationships [cite: 91]</p>
-                <p>	• Define primary and foreign keys [cite: 91]</p>
-                <p>	• Convert attributes to columns [cite: 91]</p>
-                <p>	• Normalize tables [cite: 91]</p>
-                <p>This method ensures a logical, efficient relational schema. [cite: 91]</p>
-            </div>
-        </details>
-    </details>
-
-    <details>
-        <summary class="unit-title">Unit – IV: Transaction Management and Concurrency Control [cite: 92]</summary>
-        
-        <div class="question-type">Short Answer Questions (4 lines each) [cite: 92]</div>
-        <details>
-            <summary>1. What is a Transaction? [cite: 93]</summary>
-            <div class="answer">
-                <p>A transaction is a sequence of operations performed as a single logical unit of work. [cite: 93]</p>
-                <p>It must follow ACID properties to ensure database consistency. [cite: 94]</p>
-            </div>
-        </details>
-        <details>
-            <summary>2. Define ACID Properties. [cite: 95]</summary>
-            <div class="answer">
-                <p>ACID stands for Atomicity, Consistency, Isolation, and Durability. These ensure safe and reliable transactions in DBMS. [cite: 95]</p>
-            </div>
-        </details>
-        <details>
-            <summary>3. What is Atomicity? [cite: 96]</summary>
-            <div class="answer">
-                <p>Atomicity ensures that all operations in a transaction are completed; [cite: 96]</p>
-                <p>if not, the transaction is aborted and changes are rolled back. [cite: 97]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. What is a Schedule? [cite: 98]</summary>
-            <div class="answer">
-                <p>A schedule is an ordered list of operations from a set of transactions. [cite: 98]</p>
-                <p>It defines the execution order in a multi-user environment. [cite: 99]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. What is Serializability? [cite: 100]</summary>
-            <div class="answer">
-                <p>Serializability ensures that a schedule results in the same database state as some serial execution of transactions. [cite: 100]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Define Deadlock. [cite: 101]</summary>
-            <div class="answer">
-                <p>Deadlock occurs when two or more transactions wait indefinitely for each other to release resources. [cite: 101]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. What is Two-Phase Locking Protocol? [cite: 102]</summary>
-            <div class="answer">
-                <p>It is a concurrency control method that divides a transaction into two phases: growing (acquire locks) and shrinking (release locks). [cite: 102]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. What is Concurrency Control? [cite: 103]</summary>
-            <div class="answer">
-                <p>Concurrency control manages simultaneous execution of transactions to prevent conflicts and ensure consistency. [cite: 103]</p>
+                <h3>Long Answer Questions</h3>
+                <details>
+                    <summary>1. Explain DDL, DML, and DCL statements in SQL with examples.</summary>
+                    <div class="answer">
+                        <p>	• DDL (CREATE, ALTER, DROP): Defines schema.</p>
+                        <p>	• DML (INSERT, UPDATE, DELETE): Modifies data.</p>
+                        <p>	• DCL (GRANT, REVOKE): Controls access.</p>
+                        <p>Each plays a vital role in managing and securing data in DBMS with clear syntax and defined outcomes.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. Describe the use of aggregate functions and GROUP BY in SQL.</summary>
+                    <div class="answer">
+                        <p>Aggregate functions: SUM, AVG, COUNT, MAX, MIN.</p>
+                        <p>GROUP BY groups data rows based on one or more columns. Example: <code>SELECT dept, COUNT(*) FROM emp GROUP BY dept;</code></p>
+                        <p>helps in departmental employee counts and summary reporting.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. Discuss how to create, modify, and delete views in SQL.</summary>
+                    <div class="answer">
+                        <p>	• Create: <code>CREATE VIEW emp_view AS SELECT name FROM emp;</code></p>
+                        <p>	• Update: <code>CREATE OR REPLACE VIEW ...</code></p>
+                        <p>	• Delete: <code>DROP VIEW emp_view;</code></p>
+                        <p>Views are useful for security and simplifying complex queries by abstracting the base table details.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Explain integrity constraints and their types with examples.</summary>
+                    <div class="answer">
+                        <p>	• Primary Key: <code>emp_id INT PRIMARY KEY</code></p>
+                        <p>	• Foreign Key: <code>FOREIGN KEY (dept_id) REFERENCES dept(dept_id)</code></p>
+                        <p>	• Check: <code>CHECK (salary > 0)</code></p>
+                        <p>	• Not Null: <code>name VARCHAR(20) NOT NULL</code></p>
+                        <p>These ensure the reliability and accuracy of data.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. Write a detailed note on advantages and disadvantages of Views.</summary>
+                    <div class="answer">
+                        <p><strong>Advantages:</strong></p>
+                        <p>	• Simplify complex queries</p>
+                        <p>	• Enhance security</p>
+                        <p>	• Provide logical data independence</p>
+                        <p><strong>Disadvantages:</strong></p>
+                        <p>	• May be non-updatable</p>
+                        <p>	• Can impact performance</p>
+                        <p>They are best suited for data abstraction and control.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Describe the process of creating and dropping indexes in SQL.</summary>
+                    <div class="answer">
+                        <p>	• Create: <code>CREATE INDEX idx_name ON table(col);</code></p>
+                        <p>	• Drop: <code>DROP INDEX idx_name;</code></p>
+                        <p>Indexes speed up data retrieval but may slow insert/update operations. Proper index design is crucial.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. Explain Cursors, Triggers, and Exceptions with examples.</summary>
+                    <div class="answer">
+                        <p>	• Cursor: Allows row-by-row processing. <code>DECLARE CURSOR ...</code></p>
+                        <p>	• Trigger: Runs automatically on insert/update/delete. <code>CREATE TRIGGER ...</code></p>
+                        <p>	• Exception: Handles errors using TRY-CATCH blocks or DB exception handling.</p>
+                        <p>These enhance data control.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. Write and explain an SQL program using Functions and Packages.</summary>
+                    <div class="answer">
+                        <p>A Function is used for computation. Example:</p>
+                        <p><code>CREATE FUNCTION calc_bonus(salary NUMBER) RETURN NUMBER IS</code></p>
+                        <p><code>BEGIN</code></p>
+                        <p><code>  RETURN salary * 0.10;</code></p>
+                        <p><code>END;</code></p>
+                        <p>Packages group procedures, functions, and variables. Example: <code>CREATE PACKAGE employee_ops AS ...</code></p>
+                    </div>
+                </details>
             </div>
         </details>
 
-        <div class="question-type">Long Answer Questions (8+ lines each) [cite: 104]</div>
         <details>
-            <summary>1. Explain ACID properties with examples. [cite: 104]</summary>
-            <div class="answer">
-                <p>	• Atomicity: All steps must succeed or fail as a whole. Example: Money transfer. [cite: 105]</p>
-                <p>	• Consistency: Ensures database remains valid after transaction. [cite: 106]</p>
-                <p>	• Isolation: Concurrent transactions do not interfere. [cite: 106]</p>
-                <p>	• Durability: Once committed, changes are permanent. These properties protect database integrity during crashes and errors. [cite: 107]</p>
+            <summary class="unit-main-title">Unit – III: ER Modeling and Normalization</summary>
+            <div class="unit-content">
+                <h3>Short Answer Questions</h3>
+                <details>
+                    <summary>1. Define Entity and Entity Set.</summary>
+                    <div class="answer">
+                        <p>An entity is a real-world object. An entity set is a group of similar entities.</p>
+                        <p>Example: A student is an entity, and all students form an entity set.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. What is a Relationship Type?</summary>
+                    <div class="answer">
+                        <p>It represents an association between entities. Example: A student 'enrolls' in a course – ‘enrolls’ is the relationship type.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. Differentiate between Strong and Weak Entity.</summary>
+                    <div class="answer">
+                        <p>A strong entity has a primary key.</p>
+                        <p>A weak entity cannot exist without a strong entity and uses a foreign key.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Define Key and Attribute in ER Model.</summary>
+                    <div class="answer">
+                        <p>Key uniquely identifies an entity.</p>
+                        <p>Attributes describe properties of an entity like name, age, etc.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. What are Structural Constraints?</summary>
+                    <div class="answer">
+                        <p>They define cardinality (1:1, 1:N, N:M) and participation (total or partial) in relationships.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Define Functional Dependency.</summary>
+                    <div class="answer">
+                        <p>A functional dependency X → Y means if two tuples agree on X, they must agree on Y. It’s used in normalization.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. What is Normalization?</summary>
+                    <div class="answer">
+                        <p>Normalization is a process to reduce data redundancy and improve data integrity by organizing data into tables.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. What is 3NF?</summary>
+                    <div class="answer">
+                        <p>A relation is in 3NF if it is in 2NF and no transitive dependency exists between non-prime attributes.</p>
+                    </div>
+                </details>
+
+                <h3>Long Answer Questions</h3>
+                <details>
+                    <summary>1. Explain different types of attributes in ER Model.</summary>
+                    <div class="answer">
+                        <p>Attributes can be:</p>
+                        <p>	• Simple (indivisible)</p>
+                        <p>	• Composite (divided into sub-parts)</p>
+                        <p>	• Derived (calculated)</p>
+                        <p>	• Multi-valued (multiple values)</p>
+                        <p>They help in fully defining an entity’s properties and relationships.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. What are ER diagrams? Describe symbols used.</summary>
+                    <div class="answer">
+                        <p>ER diagrams represent entities, relationships, and attributes.</p>
+                        <p>Rectangles = entities, Diamonds = relationships, Ovals = attributes. Lines connect elements. Double lines = total participation.</p>
+                        <p>This diagram helps in visualizing DB design.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. Discuss Functional Dependencies with examples.</summary>
+                    <div class="answer">
+                        <p>A → B implies B is functionally dependent on A. Example: Student_ID → Student_Name.</p>
+                        <p>Functional dependencies help detect redundancy and guide normalization.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Differentiate between Partial and Transitive Dependency.</summary>
+                    <div class="answer">
+                        <p>Partial Dependency: Non-key depends on part of composite key (1NF to 2NF).</p>
+                        <p>Transitive Dependency: A → B and B → C implies A → C (2NF to 3NF).</p>
+                        <p>These need to be removed for normalized DB design.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. Explain the purpose and process of normalization.</summary>
+                    <div class="answer">
+                        <p>Normalization reduces redundancy and anomalies. It involves organizing data into normal forms: 1NF (atomic), 2NF (no partial), 3NF (no transitive), BCNF (more strict).</p>
+                        <p>Each form improves structure and integrity.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. What is the difference between 1NF, 2NF, and 3NF?</summary>
+                    <div class="answer">
+                        <p>	• 1NF: Atomic values</p>
+                        <p>	• 2NF: No partial dependencies</p>
+                        <p>	• 3NF: No transitive dependencies</p>
+                        <p>Each step removes redundancy and improves clarity of data storage.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. Explain problems like Fan Traps and Chasm Traps in ER modeling.</summary>
+                    <div class="answer">
+                        <p>Fan Trap occurs when a single entity is related to multiple entities without proper linkage.</p>
+                        <p>Chasm Trap happens when a relationship is missing, preventing data retrieval. These are resolved using correct relationship mapping.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. Describe the Database Design Methodology using ER to Relational.</summary>
+                    <div class="answer">
+                        <p>Steps:</p>
+                        <p>	• Identify entities and relationships</p>
+                        <p>	• Define primary and foreign keys</p>
+                        <p>	• Convert attributes to columns</p>
+                        <p>	• Normalize tables</p>
+                        <p>This method ensures a logical, efficient relational schema.</p>
+                    </div>
+                </details>
             </div>
         </details>
+
         <details>
-            <summary>2. Describe different states of a transaction. [cite: 108]</summary>
-            <div class="answer">
-                <p>Transaction states include: [cite: 108]</p>
-                <p>	• Active: Performing operations [cite: 108]</p>
-                <p>	• Partially Committed: Last statement executed [cite: 108]</p>
-                <p>	• Committed: Changes saved [cite: 108]</p>
-                <p>	• Failed: Error occurred [cite: 108]</p>
-                <p>	• Aborted: Rolled back These states help in managing transaction lifecycle effectively. [cite: 108]</p>
+            <summary class="unit-main-title">Unit – IV: Transaction Management and Concurrency Control</summary>
+            <div class="unit-content">
+                <h3>Short Answer Questions</h3>
+                <details>
+                    <summary>1. What is a Transaction?</summary>
+                    <div class="answer">
+                        <p>A transaction is a sequence of operations performed as a single logical unit of work.</p>
+                        <p>It must follow ACID properties to ensure database consistency.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. Define ACID Properties.</summary>
+                    <div class="answer">
+                        <p>ACID stands for Atomicity, Consistency, Isolation, and Durability. These ensure safe and reliable transactions in DBMS.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. What is Atomicity?</summary>
+                    <div class="answer">
+                        <p>Atomicity ensures that all operations in a transaction are completed;</p>
+                        <p>if not, the transaction is aborted and changes are rolled back.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. What is a Schedule?</summary>
+                    <div class="answer">
+                        <p>A schedule is an ordered list of operations from a set of transactions.</p>
+                        <p>It defines the execution order in a multi-user environment.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. What is Serializability?</summary>
+                    <div class="answer">
+                        <p>Serializability ensures that a schedule results in the same database state as some serial execution of transactions.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Define Deadlock.</summary>
+                    <div class="answer">
+                        <p>Deadlock occurs when two or more transactions wait indefinitely for each other to release resources.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. What is Two-Phase Locking Protocol?</summary>
+                    <div class="answer">
+                        <p>It is a concurrency control method that divides a transaction into two phases: growing (acquire locks) and shrinking (release locks).</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. What is Concurrency Control?</summary>
+                    <div class="answer">
+                        <p>Concurrency control manages simultaneous execution of transactions to prevent conflicts and ensure consistency.</p>
+                    </div>
+                </details>
+
+                <h3>Long Answer Questions</h3>
+                <details>
+                    <summary>1. Explain ACID properties with examples.</summary>
+                    <div class="answer">
+                        <p>	• Atomicity: All steps must succeed or fail as a whole. Example: Money transfer.</p>
+                        <p>	• Consistency: Ensures database remains valid after transaction.</p>
+                        <p>	• Isolation: Concurrent transactions do not interfere.</p>
+                        <p>	• Durability: Once committed, changes are permanent. These properties protect database integrity during crashes and errors.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>2. Describe different states of a transaction.</summary>
+                    <div class="answer">
+                        <p>Transaction states include:</p>
+                        <p>	• Active: Performing operations</p>
+                        <p>	• Partially Committed: Last statement executed</p>
+                        <p>	• Committed: Changes saved</p>
+                        <p>	• Failed: Error occurred</p>
+                        <p>	• Aborted: Rolled back These states help in managing transaction lifecycle effectively.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>3. What is Serializability? Explain types.</summary>
+                    <div class="answer">
+                        <p>Serializability ensures consistency in concurrent transaction execution. Types:</p>
+                        <p>	• Conflict Serializability: Based on non-conflicting operations.</p>
+                        <p>	• View Serializability: Based on data views. Both types aim to ensure correctness without necessarily using serial order.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>4. Discuss Concurrency Control Techniques.</summary>
+                    <div class="answer">
+                        <p>	• Lock-based Protocols: Use shared/exclusive locks.</p>
+                        <p>	• Timestamp-based Protocols: Use timestamps for ordering.</p>
+                        <p>	• Optimistic Concurrency Control: Assumes low conflict, checks at commit. Each technique balances performance and consistency.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>5. Explain Two-Phase Locking Protocol with example.</summary>
+                    <div class="answer">
+                        <p>It has two phases:</p>
+                        <p>	• Growing phase: Transaction acquires all needed locks.</p>
+                        <p>	• Shrinking phase: Locks are released and no new locks can be acquired.</p>
+                        <p>Example: T1 locks A and B, performs operations, then releases. Ensures serializability but may lead to deadlocks.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>6. Describe Deadlock and its prevention methods.</summary>
+                    <div class="answer">
+                        <p>Deadlock occurs when transactions hold and wait on resources.</p>
+                        <p>Prevention methods:</p>
+                        <p>	• Timeouts: Abort after wait time</p>
+                        <p>	• Wait-Die / Wound-Wait: Based on priority</p>
+                        <p>	• Deadlock Detection and Recovery: Periodic checks and rollback Proper handling ensures system availability.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>7. Compare Pessimistic and Optimistic Concurrency Control.</summary>
+                    <div class="answer">
+                        <p>	• Pessimistic: Uses locking, assumes conflict is likely.</p>
+                        <p>	• Optimistic: Assumes low conflict, checks at end. Pessimistic is safer but slower. Optimistic is faster but needs rollback mechanism.</p>
+                        <p>Choice depends on workload nature.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>8. What is Transaction Logging and Checkpointing?</summary>
+                    <div class="answer">
+                        <p>	• Logging: Records all transaction activities to a log file.</p>
+                        <p>	• Checkpointing: Saves current state to minimize recovery time.</p>
+                        <p>These help in recovering the database to a consistent state after a crash.</p>
+                    </div>
+                </details>
             </div>
         </details>
-        <details>
-            <summary>3. What is Serializability? Explain types. [cite: 109]</summary>
-            <div class="answer">
-                <p>Serializability ensures consistency in concurrent transaction execution. Types: [cite: 109]</p>
-                <p>	• Conflict Serializability: Based on non-conflicting operations. [cite: 109]</p>
-                <p>	• View Serializability: Based on data views. Both types aim to ensure correctness without necessarily using serial order. [cite: 110]</p>
-            </div>
-        </details>
-        <details>
-            <summary>4. Discuss Concurrency Control Techniques. [cite: 111]</summary>
-            <div class="answer">
-                <p>	• Lock-based Protocols: Use shared/exclusive locks. [cite: 111]</p>
-                <p>	• Timestamp-based Protocols: Use timestamps for ordering. [cite: 111]</p>
-                <p>	• Optimistic Concurrency Control: Assumes low conflict, checks at commit. Each technique balances performance and consistency. [cite: 112]</p>
-            </div>
-        </details>
-        <details>
-            <summary>5. Explain Two-Phase Locking Protocol with example. [cite: 113]</summary>
-            <div class="answer">
-                <p>It has two phases: [cite: 113]</p>
-                <p>	• Growing phase: Transaction acquires all needed locks. [cite: 113]</p>
-                <p>	• Shrinking phase: Locks are released and no new locks can be acquired. [cite: 114]</p>
-                <p>Example: T1 locks A and B, performs operations, then releases. Ensures serializability but may lead to deadlocks. [cite: 115]</p>
-            </div>
-        </details>
-        <details>
-            <summary>6. Describe Deadlock and its prevention methods. [cite: 116]</summary>
-            <div class="answer">
-                <p>Deadlock occurs when transactions hold and wait on resources. [cite: 116]</p>
-                <p>Prevention methods: [cite: 117]</p>
-                <p>	• Timeouts: Abort after wait time [cite: 117]</p>
-                <p>	• Wait-Die / Wound-Wait: Based on priority [cite: 117]</p>
-                <p>	• Deadlock Detection and Recovery: Periodic checks and rollback Proper handling ensures system availability. [cite: 117]</p>
-            </div>
-        </details>
-        <details>
-            <summary>7. Compare Pessimistic and Optimistic Concurrency Control. [cite: 118]</summary>
-            <div class="answer">
-                <p>	• Pessimistic: Uses locking, assumes conflict is likely. [cite: 118]</p>
-                <p>	• Optimistic: Assumes low conflict, checks at end. Pessimistic is safer but slower. Optimistic is faster but needs rollback mechanism. [cite: 119]</p>
-                <p>Choice depends on workload nature. [cite: 120]</p>
-            </div>
-        </details>
-        <details>
-            <summary>8. What is Transaction Logging and Checkpointing? [cite: 121]</summary>
-            <div class="answer">
-                <p>	• Logging: Records all transaction activities to a log file. [cite: 121]</p>
-                <p>	• Checkpointing: Saves current state to minimize recovery time. [cite: 121]</p>
-                <p>These help in recovering the database to a consistent state after a crash. [cite: 122]</p>
-            </div>
-        </details>
-    </details>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; By Gopinaidu Annam.</p>
+        <p>Theme: [Jetkyll Theme for Github pages :)]</p>
+    </footer>
 
 </body>
 </html>
